@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <li style="list-style: none;"><a href="index.html"><span>🔙regresar</span></a></li>
+<style>
+  #CntPrincipal {
+    height: 450px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 50px;
+    
+}
+
+#CntPrincipal form {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+   
+}
+
+#CntPrincipal input[type=textfield] {
+    height: 25%;
+    width: 80%;
+    cursor: default;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 10px;
+    text-align: right;
+    font-size: 50px;
+    border: 0;
+    outline: none;
+}
+
+#CntPrincipal input[type=button], input[type=reset] {
+    width: 20%;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 26px;
+    color: black;
+    padding: 18px;
+    margin: 3px;
+    border: 0;
+    border-radius: 100%;
+    
+    
+}
+
+#CntPrincipal .orange {
+    background-color: rgb(253, 149, 3) !important;
+    color: white !important;
+    
+    
+}
+
+#CntPrincipal .gray {
+    background-color: rgb(51, 51, 51) !important;
+    color: white !important;
+}
+    </style>
+
+<div id="CntPrincipal">
+    <form name="calculator">
+        <input type="textfield" name="ans" value="" autocomplete="off" readonly >
+
+        <input type="button" value="7" onclick="document.calculator.ans.value+='7'" class="gray">
+        <input type="button" value="8" onclick="document.calculator.ans.value+='8'" class="gray">
+        <input type="button" value="9" onclick="document.calculator.ans.value+='9'" class="gray">
+        <input type="button" value="+" onclick="document.calculator.ans.value+='+'" class="orange">
+        <br>
+        <input type="button" value="4" onclick="document.calculator.ans.value+='4'" class="gray">
+        <input type="button" value="5" onclick="document.calculator.ans.value+='5'" class="gray">
+        <input type="button" value="6" onclick="document.calculator.ans.value+='6'" class="gray">
+        <input type="button" value="-" onclick="document.calculator.ans.value+='-'" class="orange">
+        <br>
+        <input type="button" value="1" onclick="document.calculator.ans.value+='1'" class="gray">
+        <input type="button" value="2" onclick="document.calculator.ans.value+='2'" class="gray">
+        <input type="button" value="3" onclick="document.calculator.ans.value+='3'" class="gray">
+        <input type="button" value="X" onclick="document.calculator.ans.value+='*'" class="orange">
+        <br>
+        <input type="button" value="0" onclick="document.calculator.ans.value+='0'" class="gray">
+        <input type="reset" value="C">
+        <input type="button" value="=" onclick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+        <input type="button" value="/" onclick="document.calculator.ans.value+='/'" class="orange">
+    </form>
+</div>
+
+    <script>
+        var cantidad="";
+
+        var acumulado=0;
+
+        var p_operacion=true;
+
+        var sumar=false;
+
+        var restar=false;
+
+
+        function displayNumeros(numero){
+
+            document.getElementById("display").value = cantidad + numero;
+
+            cantidad = document.getElementById("display").value;
+
+        }
+
+        function suma() {
+
+            if(restar){
+            acumulado = acumulado + parseInt(cantidad);
+            document.getElementById("display").value = acumulado;
+
+            }else{
+
+            acumulado=acumulado + parseInt(cantidad);
+            document.getElementById("display").value=acumulado;
+            }
+
+            cantidad = "";
+            sumar = true;
+            resta=false;
+        }
+
+        function resta(){
+
+            if(p_operacion==false){
+            
+            if (sumar) {
+
+                acumulado=acumulado+parseInt(cantidad);
+                document.getElementById("display").value=acumulado;
+            
+            }else{
+
+                acumulado=acumulado-parseInt(cantidad);
+                document.getElementById("display").value=acumulado;
+            }
+
+            
+            }else{
+
+            acumulado=parseInt(cantidad);
+
+            p_operacion=false;
+
+        }
+
+            cantidad ="";
+            sumar = false;
+            restar = true;
+
+        }
+
+        function resultado() {
+
+            if(sumar) {
+
+                document.getElementById("display").value=acumulado+parseInt(cantidad);
+
+            } else if(restar) {
+
+                document.getElementById("display").value=acumulado-parseInt(cantidad);
+            }
+            acumulado=parseInt(document.getElementById("display").value);
+            cantidads=0;
+        }
+
+
+    </script>
+
+
+    <!--   <strong id="titulo">Ejemplo 1</strong>
+    <a href="index.html">Prueba</a>
+
+    <hr>
+
+    <strong>Realizar un programa que sume dos numeros</strong>
+    <input name="button1"  id="numero1" type="button" value="1" onclick="display_numeros()">
+    <input id="numero2" type="text" placeholder="Ingrese numero" required>
+    <button id="btn">Calcular suma</button>
+
+    <script>
+        function display_numeros(){
+        
+            document.getElementById("numero1")
+       
+    }
+
+
+        const num1 = document.querySelector("#numero1");
+        const num2 = document.querySelector("#numero2");
+        const btn = document.querySelector("#btn");
+
+        btn.addEventListener("click", sumar);
+        const resultadoP = document.createElement("P");
+        document.body.appendChild(resultadoP);
+        function sumar() {
+
+            const resultadoSuma = parseInt(num1.value) + parseInt(num2.value);
+            console.log("el resultado de la suma es:" + resultadoSuma)
+            resultadoP.innerText = "El resultado de la suma es: \n" + resultadoSuma;
+
+            
+        }
+ -->
+    </script>
+</body>
+
+</html>

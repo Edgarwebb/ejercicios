@@ -1,0 +1,114 @@
+* {
+    transition: all 0.3s;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 300%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    background-image: url(https://img.freepik.com/foto-gratis/superficie-metal-rayado-estilo-grunge-oscuro_1048-12951.jpg);
+}
+
+.marco {
+    border-radius: 20px;
+    background: black;
+    padding: 30px;
+    border: 5px solid white;
+}
+
+.botones-contenedor {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 60%;
+    padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*        body {
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+ 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+ */
+/*  .bordeAzul{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           
+            background-color: aqua;
+            height: 260px;
+            max-width: 500px;
+            width: 90%;
+            border-radius: 30px;
+           
+        
+          
+
+        }
+
+        .contenedor-fechaReloj {
+            background-color: rgb(74, 74, 74);
+            max-width: 450px;
+            width: 90%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: inset black 5px;
+
+        }
+
+        #reloj{
+            font-size: 50px;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+
+        } */
